@@ -17,6 +17,11 @@ Usage
 $ typeform-now <your-typeform-url>
 ```
 
+### Deploy a typeform to a custom domain
+```
+$ typeform-now <your-typeform-url> -- --alias <your-custom-domain>
+```
+
 ### Deploy a typeform locally
 ```
 $ typeform-now --dev <your-typeform-url>
@@ -26,4 +31,3 @@ $ typeform-now --dev <your-typeform-url>
 ```
 $ typeform-now --help
 ```
-

@@ -37,12 +37,17 @@ const usageSections = [
     optionList: optionDefinitions
   },
   {
+    header: 'Options for `now` and `serve`',
+    content: 'To pass command line options to `now` and `serve`, put them behind a double dash (`--`), as in:' +
+             '\ntypeform-now <your-type-form-url> -- --extra-arg'
+  },
+  {
     content: 'Project home: {underline https://github.com/kinesis-exchange/typeform-now}'
   }
 ]
 
 async function deploy () {
-  const options = commandLineArgs(optionDefinitions)
+  const options = commandLineArgs(optionDefinitions, { stopAtFirstUnknown: true })
 
   if (options.help || !options.url) {
     console.log(commandLineUsage(usageSections))
@@ -50,11 +55,17 @@ async function deploy () {
   }
 
   const path = await createDeployment(options.url)
+  const extraArgs = options._unknown || []
+  let passThroughArgs = ''
+
+  if (extraArgs.length && extraArgs[0] === '--') {
+    passThroughArgs = extraArgs.slice(1).join(' ')
+  }
 
   if (options.dev) {
-    console.log(execSync(`../../node_modules/.bin/serve`, { stdio: 'inherit', cwd: path }))
+    execSync(`../../node_modules/.bin/serve ${passThroughArgs}`, { stdio: 'inherit', cwd: path })
   } else {
-    const deployedUrl = execSync(`../../node_modules/.bin/now`, { stdio: 'inherit', cwd: path })
+    execSync(`../../node_modules/.bin/now ${passThroughArgs}`, { stdio: 'inherit', cwd: path })
   }
 }
 
