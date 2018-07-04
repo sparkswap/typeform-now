@@ -19,7 +19,7 @@ $ typeform-now <your-typeform-url>
 
 ### Deploy a typeform to a custom domain
 ```
-$ typeform-now <your-typeform-url> -- --alias <your-custom-domain>
+$ typeform-now <your-typeform-url> && now alias $(pbpaste) <your-custom-domain>
 ```
 
 ### Deploy a typeform locally
