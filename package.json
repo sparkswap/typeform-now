@@ -1,0 +1,25 @@
+{
+  "name": "typeform-now",
+  "version": "1.0.0",
+  "description": "Deploy your typeform to its own domain using now.sh",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinesis-exchange/typeform-now.git"
+  },
+  "keywords": [
+    "now",
+    "typeform",
+    "now-sh",
+    "zeit"
+  ],
+  "author": "Trey Griffith <trey@kines.is>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kinesis-exchange/typeform-now/issues"
+  },
+  "homepage": "https://github.com/kinesis-exchange/typeform-now#readme"
+}
